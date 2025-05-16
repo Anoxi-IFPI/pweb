@@ -12,7 +12,7 @@
 
     <h1>Cadastro</h1>
 
-    <form action="adicionar.html" method="get">
+    <form action="https://qfqdkj.hospedagemelastica.com.br/pweb/salvar.jsp" method="post">
 
         Login: <br />
         <input type="text" name="login"><br />
@@ -32,24 +32,24 @@
         <br />
 
         Email: <br />
-        <input type="text" name="Email"><br />
+        <input type="text" name="email"><br />
 
         <br />
 
         Interesses: <br />
-        <input type="checkbox" name="Futebol">Futebol<br />
-        <input type="checkbox" name="Política">Política<br />
-        <input type="checkbox" name="Economia">Economia<br />
-        <input type="checkbox" name="Carros">Carros<br />
-        <input type="checkbox" name="Celebridades">celebridades<br />
+        <input type="checkbox" name="interesses" value="Futebol"> Futebol<br />
+        <input type="checkbox" name="interesses" value="Política"> Política<br />
+        <input type="checkbox" name="interesses" value="Economia">Economia<br />
+        <input type="checkbox" name="interesses" value="Carros">Carros<br />
+        <input type="checkbox" name="interesses" value="Celebridades">Celebridades<br />
 
         <br />
 
-        Estados:
+        Estado:
         <br />
-        <select name="" id="">
-            <option value="SP" disabled>São Paulo</option>
-            <option value="PI" selected>Piaui</option>
+        <select name="estado">
+            <option value="SP">São Paulo</option>
+            <option value="PI" >Piaui</option>
             <option value="SC">Santa Catarina</option>
             <option value="PN">Paraná</option>
         </select>
@@ -60,7 +60,7 @@
         Observações:
         <br />
 
-        <textarea> </textarea>
+        <textarea name="observacao"> </textarea>
 
         <br />
 
