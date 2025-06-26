@@ -5,20 +5,20 @@
     padding: 10px;
 }
 
-a:link{/*não visitados*/
+a:link{
     color: #b9c941;
     text-decoration: none;
 }
 
-a:visited{/*visitados*/
+a:visited{
 color: #458b00
 }
 
-a:hover{/*passar o mouse*/
+a:hover{
     color: #8B4726;
 }
 
-a:active{/*clicado*/
+a:active{
     color: #ff1493;
 }
 

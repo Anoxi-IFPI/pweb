@@ -1,4 +1,3 @@
-/* Estilos Gerais */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -14,10 +13,9 @@ body {
     margin: 20px auto;
     padding: 0 20px;
     gap: 20px;
-    flex-wrap: wrap; /* Permite que os elementos quebrem a linha em telas menores */
+    flex-wrap: wrap; 
 }
 
-/* Header */
 header {
     background-color: #2c3e50;
     color: #fff;
@@ -36,14 +34,13 @@ header p {
     font-size: 1.1em;
 }
 
-/* Navegação */
 nav {
-    flex: 0 0 200px; /* Não cresce, não encolhe, largura base de 200px */
+    flex: 0 0 200px; 
     background-color: #ecf0f1;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    height: fit-content; /* Ajusta a altura ao conteúdo */
+    height: fit-content; 
 }
 
 nav h2 {
@@ -76,13 +73,11 @@ nav ul li a:hover {
     color: #2980b9;
 }
 
-/* Conteúdo Principal (Main) */
 main {
-    flex: 1; /* Ocupa o espaço restante */
-    min-width: 500px; /* Largura mínima para o conteúdo principal */
+    flex: 1; 
+    min-width: 500px; 
 }
 
-/* Seções de Notícias */
 section.news-section {
     background-color: #fff;
     padding: 25px;
@@ -99,7 +94,6 @@ section.news-section h2 {
     margin-bottom: 20px;
 }
 
-/* Artigos (Postagens) */
 article {
     border-bottom: 1px dashed #eee;
     padding-bottom: 20px;
@@ -151,20 +145,18 @@ article a:hover {
     background-color: #2980b9;
 }
 
-/* Tag Time */
 time {
     font-weight: bold;
     color: #2c3e50;
 }
 
-/* Aside (Publicidade) */
 aside {
-    flex: 0 0 280px; /* Não cresce, não encolhe, largura base de 280px */
+    flex: 0 0 280px; 
     background-color: #ecf0f1;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    height: fit-content; /* Ajusta a altura ao conteúdo */
+    height: fit-content;
 }
 
 aside h2 {
@@ -176,7 +168,7 @@ aside h2 {
 
 aside .banner {
     margin-bottom: 20px;
-    text-align: center; /* Centraliza as imagens dos banners */
+    text-align: center; 
 }
 
 aside .banner img {
@@ -186,7 +178,6 @@ aside .banner img {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Footer */
 footer {
     background-color: #2c3e50;
     color: #fff;
@@ -196,29 +187,28 @@ footer {
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
-/* Responsividade Básica */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Empilha os elementos em telas menores */
+        flex-direction: column; 
         padding: 0 10px;
     }
 
     nav, aside, main {
-        flex: 1 1 100%; /* Ocupa a largura total */
-        min-width: unset; /* Remove a largura mínima para flexibilidade */
+        flex: 1 1 100%; 
+        min-width: unset;
     }
 
     nav ul {
-        display: flex; /* Transforma a lista em uma linha */
-        flex-wrap: wrap; /* Permite que os itens quebrem a linha */
-        justify-content: center; /* Centraliza os itens */
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
     }
 
     nav ul li {
-        margin: 0 10px 10px 0; /* Espaçamento entre os itens da nav */
+        margin: 0 10px 10px 0; 
     }
 
     aside {
-        order: -1; /* Move o aside para cima em telas menores para aparecer antes do conteúdo principal */
+        order: -1; 
     }
 }
