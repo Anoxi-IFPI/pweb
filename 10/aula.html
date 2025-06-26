@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatação de links, tag nav, header e footer</title>
+<style> 
+
+    .menu{
+        background: #EEE685;
+        font-family: "Trebucher MS", Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+    a:link{/*não visitados*/
+        color: #b9c941;
+        text-decoration: none;
+    }
+
+    a:visited{/*visitados*/
+        color: #458b00;
+    }
+
+    a:hover{/*passar o mouse*/
+        color: #ff1493; 
+        background-color: orange; 
+    }
+
+    a:active{/*clicado*/
+        color: #ff1493;
+    }
+
+</style>
+</head>
+<body>
+
+    
+    <nav class="menu">
+        <a href="http://www.google.com">Google</a> |
+        <a href="http://www.techtudo.com">Tech Tudo</a> |
+        <a href="http://www.maujor.com">Maujor</a> |
+        <a href="index.html">Home</a> |
+        <a href="aula.html">Aula</a>
+    
+    </nav>
+
+    <header>
+        <h1>Exemplo da tag header</h1>
+    </header>
+
+    <footer>
+        <p>Postado por: Fulano de Tal</p>
+        <p>Contato: <a href="mailto:fulano@example.com">fulano@example.com</a></p>
+    </footer>
+   
+
+
+</body>
+</html>

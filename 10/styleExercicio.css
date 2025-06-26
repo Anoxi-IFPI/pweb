@@ -1,0 +1,27 @@
+.menu{
+    background: hsl(55, 76%, 73%);
+    font-family: "Trebucher MS", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+}
+
+a:link{/*não visitados*/
+    color: #b9c941;
+    text-decoration: none;
+}
+
+a:visited{/*visitados*/
+color: #458b00
+}
+
+a:hover{/*passar o mouse*/
+    color: #8B4726;
+}
+
+a:active{/*clicado*/
+    color: #ff1493;
+}
+
+a{
+    text-decoration: none;
+}
