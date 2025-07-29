@@ -1,30 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset='utf-8'>
-    <title> Primeiro site do Antonio </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Site de Antonio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #007BFF;
+            --primary-dark: #0056b3;
+            --background-light: #F8F9FA;
+            --background-dark: #E9ECEF;
+            --text-color: #343A40;
+            --border-color: #DEE2E6;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --accent-light: #CCEEFF;
+            --secondary-color: #28A745;
+            --secondary-dark: #1E7E34;
+            --button-text-color: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --card-border: #E0E6EB;
+            --card-shadow-initial: 0 4px 15px rgba(0, 0, 0, 0.06);
+            --card-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
+            --button-bg-initial: #F0F2F5;
+            --button-border-initial: #D6DCE0;
+            --button-text-initial: #495057;
+            --button-bg-hover: var(--primary-color);
+            --button-text-hover: #FFFFFF;
+            --button-shadow-hover: 0 8px 20px rgba(0, 123, 255, 0.3);
+            --shine-gradient: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
+            padding: 40px 20px;
+            background-color: var(--background-light);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            background-color: #f4f4f4;
+            line-height: 1.6;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
         }
 
         .profile-image-container {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #fff;
+            background-color: var(--card-bg);
+            border: 4px solid var(--primary-color); /* Add a border matching primary color */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .profile-image-container:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
         }
 
         .profile-image-container img {
@@ -34,68 +84,280 @@
             border-radius: 50%;
         }
 
-        .activities-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 90%;
+        h1 {
+            color: var(--primary-dark);
             text-align: center;
+            margin-bottom: 50px; /* Adjust if profile section has its own margin */
+            font-size: 3.2em;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            margin-top: 0; /* Remove default h1 margin-top */
         }
 
-        .activities-container h1 {
-            color: #333;
-            margin-bottom: 25px;
+        .profile-section h2 { /* New style for your name */
+            color: var(--text-color);
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 10px;
         }
 
-        .activities-container p {
-            margin: 10px 0;
+        .links-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow-initial);
+            transition: all 0.4s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            z-index: 1; /* Ensure content is above pseudo-element */
         }
 
-        .activities-container a {
-            color: #007bff;
+        .links-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, var(--accent-light) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: scale(0);
+            z-index: 0;
+        }
+
+        .links-container:hover::before {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .caixa {
+            flex-basis: calc(50% - 25px);
+            min-width: 300px;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: none;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .caixa a.button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--button-text-initial);
+            background-color: var(--button-bg-initial);
+            border: 1px solid var(--button-border-initial);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow-initial);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transform: translateZ(0);
+            min-height: 80px; /* Ensure a minimum height for all buttons */
         }
 
-        .activities-container a:hover {
-            color: #0056b3;
-            text-decoration: underline;
+        .caixa a.button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--shine-gradient);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .caixa a.button:hover::before {
+            transform: translateX(200%);
+        }
+
+        .caixa a.button:hover {
+            background-color: var(--button-bg-hover);
+            color: var(--button-text-hover);
+            transform: translateY(-5px);
+            box-shadow: var(--button-shadow-hover);
+            border-color: var(--button-bg-hover);
+        }
+
+        @media (max-width: 992px) {
+            .links-container {
+                max-width: 700px;
+                padding: 35px;
+            }
+            .caixa {
+                flex-basis: calc(50% - 20px);
+                min-width: 250px;
+            }
+            .caixa a.button {
+                padding: 25px;
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 30px; /* Adjusted margin */
+            }
+            .profile-image-container {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 20px;
+            }
+            .profile-section h2 {
+                font-size: 2em;
+            }
+            .links-container {
+                max-width: 500px;
+                padding: 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .caixa {
+                flex-basis: 100%;
+                min-width: unset;
+            }
+            .caixa a.button {
+                padding: 22px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+                margin-bottom: 25px; /* Adjusted margin */
+            }
+            body {
+                padding: 20px 15px;
+            }
+            .profile-image-container {
+                width: 120px;
+                height: 120px;
+            }
+            .profile-section h2 {
+                font-size: 1.6em;
+            }
+            .links-container {
+                padding: 20px;
+            }
+            .caixa a.button {
+                padding: 18px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="profile-image-container">
-        <img src="sua-foto.jpg" alt="Minha Foto de Perfil">
+
+    <div class="profile-section">
+        <div class="profile-image-container">
+            <img src="sua-foto.jpg" alt="Minha Foto de Perfil">
+        </div>
+        <h2>ANTONIO JOSÉ ALVES DE SOUSA</h2>
     </div>
 
-    <div class="activities-container">
-        <h1> ANTONIO JOSÉ ALVES DE SOUSA </h1>
-        <p> <a target="_blank" href="./01/index.html"> Atividade 01 </a> - Links </p>
-        <p> <a target="_blank" href="./02/index.html"> Atividade 02 </a> - Mais Tags HTML </p>
-        <p> <a target="_blank" href="./03/index.html"> Atividade 03 </a> - Tabelas HTML </p>
-        <p> <a target="_blank" href="./04/index.html"> Atividade 04 </a> - Formulário </p>
-        <p> <a target="_blank" href="./trabalho01/index.html"> trabalho01 </a> - Site JM Viagens </p>
-        <p> <a target="_blank" href="./05 - Css/index.html"> Atividade 05 </a> - Css Inline</p>
-        <p> <a target="_blank" href="./06 - Tag Div e Span/index.html"> Atividade 06 </a> - Tag Div e Span </p>
-        <p> <a target="_blank" href="./07/index.html"> Atividade 07 </a> - Famílias de Fontes </p>
-        <p> <a target="_blank" href="./08/index.html"> Atividade 08 </a> - Box Model </p>
-        <p> <a target="_blank" href="./09/index.html"> Atividade 09 </a> - Posicionamentos</p>
-        <p> <a target="_blank" href="./10/index.html"> Atividade 10 </a> - Nav, Header, Footer</p>
-        <p> <a target="_blank" href="./11/index2.html"> Atividade 11 </a> - Article, Section, Time, Aside </p>
-        <p> <a target="_blank" href="./12/index.html"> Atividade 12 </a> - Atributo Data </p>
-        <p> <a target="_blank" href="./13/container.html"> Atividade 13 </a> - Normalize CSS3</p>
-        <p> <a target="_blank" href="./14/container.html"> Atividade 14 </a> - Transparencia, Sombra, Gradiente</p>
-        <p> <a target="_blank" href="./15/container.html"> Atividade 15 </a> - Transition-Animation</p>
-        <p> <a target="_blank" href="./16/container.html"> Atividade 16 </a> - Desing Responsivo Bootstranp</p>
-        <p> <a target="_blank" href="./17/bootstrap.html"> Atividade 17 </a> - Sistema de Greed</p>
-        <p> <a target="_blank" href="./18/container.html"> Atividade 18 </a> - Formulários e Tabelas</p>
-        <p> <a target="_blank" href="./19/container.html"> Atividade 19 </a> - Botões Imagens Responsivas</p>
-        <p> <a target="_blank" href="./20/container.html"> Atividade 20 </a> - Barra de navegação Modal Window</p>
-        <p> <a target="_blank" href="./21/container.html"> Atividade 21 </a> - Alert_Tooltip_Popover</p>
-        <p> <a target="_blank" href="./22/index.html"> Atividade 22 </a> - javascript</p>
+    <h1>Minhas Atividades</h1> <div class="links-container">
+        <div class="caixa">
+            <a target="_blank" href="./01/index.html" class="button">Atividade 01 - Links</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./02/index.html" class="button">Atividade 02 - Mais Tags HTML</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./03/index.html" class="button">Atividade 03 - Tabelas HTML</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./04/index.html" class="button">Atividade 04 - Formulário</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./trabalho01/index.html" class="button">Trabalho 01 - Site JM Viagens</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./05 - Css/index.html" class="button">Atividade 05 - Css Inline</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./06 - Tag Div e Span/index.html" class="button">Atividade 06 - Tag Div e Span</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./07/index.html" class="button">Atividade 07 - Famílias de Fontes</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./08/index.html" class="button">Atividade 08 - Box Model</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./09/index.html" class="button">Atividade 09 - Posicionamentos</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./10/index.html" class="button">Atividade 10 - Nav, Header, Footer</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./11/index2.html" class="button">Atividade 11 - Article, Section, Time, Aside</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./12/index.html" class="button">Atividade 12 - Atributo Data</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./13/container.html" class="button">Atividade 13 - Normalize CSS3</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./14/container.html" class="button">Atividade 14 - Transparência, Sombra, Gradiente</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./15/container.html" class="button">Atividade 15 - Transition-Animation</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./16/container.html" class="button">Atividade 16 - Design Responsivo Bootstrap</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./17/bootstrap.html" class="button">Atividade 17 - Sistema de Grid</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./18/container.html" class="button">Atividade 18 - Formulários e Tabelas</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./19/container.html" class="button">Atividade 19 - Botões Imagens Responsivas</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./20/container.html" class="button">Atividade 20 - Barra de Navegação Modal Window</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./21/container.html" class="button">Atividade 21 - Alert, Tooltip, Popover</a>
+        </div>
+        <div class="caixa">
+            <a target="_blank" href="./22/index.html" class="button">Atividade 22 - Javascript</a>
+        </div>
     </div>
+
 </body>
 </html>
