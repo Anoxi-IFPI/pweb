@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades de CSS 21 - Trabalho Avaliativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --primary-dark: #0056b3;
+            --background-light: #F8F9FA;
+            --background-dark: #E9ECEF;
+            --text-color: #343A40;
+            --border-color: #DEE2E6;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --accent-light: #CCEEFF;
+            --secondary-color: #28A745;
+            --secondary-dark: #1E7E34;
+            --button-text-color: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --card-border: #E0E6EB;
+            --card-shadow-initial: 0 4px 15px rgba(0, 0, 0, 0.06);
+            --card-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
+            --button-bg-initial: #F0F2F5;
+            --button-border-initial: #D6DCE0;
+            --button-text-initial: #495057;
+            --button-bg-hover: var(--primary-color);
+            --button-text-hover: #FFFFFF;
+            --button-shadow-hover: 0 8px 20px rgba(0, 123, 255, 0.3);
+            --shine-gradient: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: var(--background-light);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            line-height: 1.6;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 3.2em;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow-initial);
+            transition: all 0.4s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .links-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, var(--accent-light) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: scale(0);
+            z-index: 0;
+        }
+
+        .links-container:hover::before {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .caixa {
+            flex-basis: calc(50% - 25px);
+            min-width: 300px;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: none;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .caixa a.button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            text-decoration: none;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--button-text-initial);
+            background-color: var(--button-bg-initial);
+            border: 1px solid var(--button-border-initial);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow-initial);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transform: translateZ(0);
+        }
+
+        .caixa a.button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--shine-gradient);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .caixa a.button:hover::before {
+            transform: translateX(200%);
+        }
+
+        .caixa a.button:hover {
+            background-color: var(--button-bg-hover);
+            color: var(--button-text-hover);
+            transform: translateY(-5px);
+            box-shadow: var(--button-shadow-hover);
+            border-color: var(--button-bg-hover);
+        }
+
+        @media (max-width: 992px) {
+            .links-container {
+                max-width: 700px;
+                padding: 35px;
+            }
+            .caixa {
+                flex-basis: calc(50% - 20px);
+                min-width: 250px;
+            }
+            .caixa a.button {
+                padding: 25px;
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+            .links-container {
+                max-width: 500px;
+                padding: 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .caixa {
+                flex-basis: 100%;
+                min-width: unset;
+            }
+            .caixa a.button {
+                padding: 22px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            body {
+                padding: 20px 15px;
+            }
+            .links-container {
+                padding: 20px;
+            }
+            .caixa a.button {
+                padding: 18px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Atividade de CSS 21</h1>
+
+    <div class="links-container">
+        <div class="caixa">
+            <a target="_blank" href="./alerts.html" class="button">Alerts</a>
+        </div>
+
+        <div class="caixa">
+            <a target="_blank" href="./popover.html" class="button">Popover</a>
+        </div>
+
+        <div class="caixa">
+            <a target="_blank" href="./tooltip.html" class="button">Tooltip</a>
+        </div>
+
+        <div class="caixa">
+            <a target="_blank" href="./atividade.html" class="button">Trabalho</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
