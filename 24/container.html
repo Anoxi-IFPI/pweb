@@ -6,9 +6,7 @@
     <title>Atividades de CSS 21 - Trabalho Avaliativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /*
-         * Variáveis CSS: Mantidas para uma fácil personalização
-         */
+
         :root {
             --primary-color: #007BFF;
             --primary-dark: #0056b3;
@@ -36,7 +34,6 @@
             --loading-color: var(--primary-color);
         }
 
-        /* Estilos globais e animação de carregamento */
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
@@ -92,7 +89,6 @@
             color: var(--primary-dark);
             text-align: center;
             margin-bottom: 50px;
-            /* Usando clamp para uma fonte mais fluida em diferentes telas */
             font-size: clamp(2em, 5vw, 3.2em);
             font-weight: 700;
             letter-spacing: -0.02em;
@@ -106,7 +102,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            /* Usando rem para espaçamento flexível */
             gap: 1.5rem;
             width: 100%;
             max-width: 900px;
@@ -118,7 +113,6 @@
             transition: all 0.4s ease-in-out;
             position: relative;
             overflow: hidden;
-            /* Ativando Container Queries */
             container-type: inline-size;
             container-name: link-card-container;
         }
@@ -143,7 +137,6 @@
         }
 
         .caixa {
-            /* Usando flex-basis para uma base de 50%, garantindo que os itens se ajustem */
             flex: 1 1 300px;
             padding: 0;
             background-color: transparent;
@@ -195,7 +188,6 @@
             z-index: 0;
         }
 
-        /* Foco para acessibilidade */
         .caixa a.button:focus-visible {
             outline: 2px solid var(--primary-color);
             outline-offset: 4px;
@@ -215,10 +207,7 @@
             outline: none;
         }
 
-        /*
-         * Utilizando Container Queries para adaptar o layout
-         * O layout se ajusta ao tamanho do container, não da tela
-         */
+       
         @container link-card-container (max-width: 768px) {
             .links-container {
                 flex-direction: column;
