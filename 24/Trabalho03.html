@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP com ViaCEP</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-container">
+            <img src="./img/image.png" alt="Ícone de endereço" class="header-icon">
+            <h3>Preenchendo um formulário com ViaCEP</h3>
+        </div>
+        
+        <p>Digite um CEP (somente números) e clique em "Consultar" para preencher o formulário automaticamente.</p>
+        <label>CEP:
+            <input type="text" id="cep" placeholder="Somente números" maxlength="9">
+        </label>
+        <button id="mybtn">Consultar</button>
+        <hr>
+        <form>
+            <label>Rua: <br>
+                <input type="text" id="rua" size="60" readonly>
+            </label><br><br>
+            <label>Bairro: <br>
+                <input type="text" id="bairro" size="40" readonly>
+            </label><br><br>
+            <label>Cidade: <br>
+                <input type="text" id="cidade" size="40" readonly>
+            </label><br><br>
+            <label>Estado: <br>
+                <input type="text" id="uf" size="2" readonly>
+            </label><br><br>
+            <label>IBGE:<br>
+                <input type="text" id="ibge" size="8" readonly>
+            </label><br><br>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javaScript.js"></script>
+
+</body>
+</html>
